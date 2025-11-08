@@ -23,7 +23,6 @@ import logo from "@/assets/logo.png";
 const Dashboard = () => {
   const navigate = useNavigate();
 
-  // Dados mock de editais
   const mockEditais = [
     {
       id: 1,
@@ -59,7 +58,6 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
       <header className="border-b border-border bg-card/50 sticky top-0 z-50 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-1.5">
@@ -78,7 +76,6 @@ const Dashboard = () => {
       </header>
 
       <div className="container mx-auto px-6 py-8">
-        {/* Filtros */}
         <Card className="mb-8 shadow-elegant border-border">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-white">
@@ -169,7 +166,6 @@ const Dashboard = () => {
           </CardContent>
         </Card>
 
-        {/* Resultados - Editais */}
         <div className="space-y-4">
           <h2 className="text-2xl font-bold mb-4">
             <span className="text-white">Oportunidades</span> em Editais

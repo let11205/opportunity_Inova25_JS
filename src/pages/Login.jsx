@@ -9,7 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import logo from "@/assets/logo.png";
 
 const Login = () => {
-  const [step, setStep] = useState<"sector" | "auth">("sector");
+  const [step, setStep] = useState("sector");
   const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -25,10 +25,9 @@ const Login = () => {
     setStep("auth");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Simulação de autenticação
     if (isLogin) {
       toast({
         title: "Login realizado com sucesso!",
@@ -41,7 +40,6 @@ const Login = () => {
       });
     }
     
-    // Redirecionar para dashboard
     setTimeout(() => {
       navigate("/dashboard");
     }, 1000);

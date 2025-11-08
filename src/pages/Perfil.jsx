@@ -8,13 +8,6 @@ import { Target, Building2, Plus, Trash2, ArrowLeft, User, LogOut } from "lucide
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 
-interface Product {
-  id: number;
-  name: string;
-  description: string;
-  keywords: string;
-}
-
 const Perfil = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -26,7 +19,7 @@ const Perfil = () => {
     email: "contato@empresa.com.br",
   });
 
-  const [products, setProducts] = useState<Product[]>([
+  const [products, setProducts] = useState([
     {
       id: 1,
       name: "Sistema de Monitoramento 24h",
@@ -60,7 +53,7 @@ const Perfil = () => {
     });
   };
 
-  const handleRemoveProduct = (id: number) => {
+  const handleRemoveProduct = (id) => {
     setProducts(products.filter(p => p.id !== id));
     toast({
       title: "Produto removido",
@@ -70,7 +63,6 @@ const Perfil = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
       <header className="border-b border-border bg-card sticky top-0 z-50 shadow-sm">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -91,7 +83,6 @@ const Perfil = () => {
       </header>
 
       <div className="container mx-auto px-6 py-8 max-w-4xl">
-        {/* Dados da Empresa */}
         <Card className="mb-8 shadow-elegant">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -140,7 +131,6 @@ const Perfil = () => {
           </CardContent>
         </Card>
 
-        {/* Produtos Cadastrados */}
         <Card className="mb-8 shadow-elegant">
           <CardHeader>
             <CardTitle>Produtos da Minha Empresa</CardTitle>
@@ -149,7 +139,6 @@ const Perfil = () => {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            {/* Lista de produtos */}
             {products.map((product) => (
               <div key={product.id} className="p-4 border rounded-lg bg-secondary/30">
                 <div className="flex justify-between items-start mb-2">
@@ -171,7 +160,6 @@ const Perfil = () => {
               </div>
             ))}
 
-            {/* Formulário de novo produto */}
             <div className="border-t pt-6">
               <h4 className="font-semibold mb-4 flex items-center gap-2">
                 <Plus className="h-5 w-5" />
