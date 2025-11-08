@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Target } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
@@ -60,25 +61,17 @@ const Login = () => {
               Em qual setor você trabalha?
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-3">
-            <Button 
-              onClick={() => handleSectorSelect("Tecnologia Digital")}
-              className="w-full h-16 text-lg bg-white text-black hover:bg-white/90"
-            >
-              Tecnologia Digital
-            </Button>
-            <Button 
-              onClick={() => handleSectorSelect("Tecnologia Industrial")}
-              className="w-full h-16 text-lg bg-white text-black hover:bg-white/90"
-            >
-              Tecnologia Industrial
-            </Button>
-            <Button 
-              onClick={() => handleSectorSelect("Outro")}
-              className="w-full h-16 text-lg bg-white text-black hover:bg-white/90"
-            >
-              Outro
-            </Button>
+          <CardContent className="space-y-4">
+            <Select onValueChange={handleSectorSelect}>
+              <SelectTrigger className="w-full h-16 text-lg bg-background">
+                <SelectValue placeholder="Selecione uma opção" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Tecnologia Digital" className="text-lg py-3">
+                  Tecnologia Digital
+                </SelectItem>
+              </SelectContent>
+            </Select>
           </CardContent>
         </Card>
       </div>
